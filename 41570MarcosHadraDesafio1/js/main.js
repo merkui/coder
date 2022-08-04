@@ -3,7 +3,9 @@ let entrada = prompt(
 );
 let ingresados = "";
 let suma = 0;
-while (entrada != "Listo") {
+while (entrada.toLowerCase() !== "listo") { /* Recomiendo usar "!==" para mejorar la comparacion.
+                                                podemos usar el metodo toLowerCase() para que siempre lo pase a minuscula
+                                                y tenga mejor UX ;) */
   switch (entrada) {
     case "1":
       entrada = "Jabon por 10";
@@ -43,3 +45,8 @@ while (entrada != "Listo") {
   );
 }
 console.log("Su pedido\n" + ingresados + "\n Total :" + suma);
+
+/*
+  Buena logica! Me gusto el algoritmo, entretenido y con muchas opciones. 
+  Esta aprobado!
+*/
