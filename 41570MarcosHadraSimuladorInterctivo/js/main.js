@@ -6,21 +6,25 @@ while (pregunto.toLowerCase() !== "no") {
 }
 
 function ingresarProductos() {
-  producto = prompt("Ingerse un producto\n1. Jabon $10\n2. Shampoo $20");
+  producto = parseInt( //Usamos el metodo parseInt para trasformar String a Number y que funcione la comparacion de abajo
+    prompt("Ingerse un producto\n1. Jabon $10\n2. Shampoo $20")
+  );
 
-  if (producto == 1) {
+  if (producto === 1) {
+    //Mejor usar "==="
     producto = "Jabon por $10";
     precio = 10;
-    suma = suma + precio;
-  } else if (producto == 2) {
+    suma += precio; //De esta manera es mas corto y hace lo mismo!
+  } else if (producto === 2) {
     producto = "Shampoo por $20";
     precio = 20;
-    suma = suma + precio;
+    suma += precio;
   }
-  console.log(producto + " Suma total del pedido $" + suma);
 }
 
 if (suma) {
   let totalConIva = suma * 1.21;
-  console.log("Total con iva incluido: $" + totalConIva);
+  alert(
+    `Suma total del pedido: $${suma} \n Total con iva incluido: $${totalConIva}` //Usando "``" podemos interpolar variables con strings de esta manera!
+  );
 }
