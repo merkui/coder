@@ -43,7 +43,7 @@ const carrito = [];
 }*/
 
 // Agarrar un producto disponible y push a carrito
-let pregunto = prompt("1. Agrregar producto al carro? \n Si \n No");
+let pregunto = prompt("1. Quiere agrregar un producto al carro? \n Si \n No"); //Cambie esto para que ses mas entendible
 while (pregunto.toLowerCase() !== "no") {
   ingresarProductos();
   // alert("Adentro del while - funcion push");
@@ -53,7 +53,8 @@ while (pregunto.toLowerCase() !== "no") {
 
 //Funcion push a array carrito
 function ingresarProductos() {
-  agregarProducto = prompt(
+  let agregarProducto = prompt(
+    //No te olvides de declarar variables
     "Productos Disponibles: \n\n" +
       JSON.stringify(productos, null, 0) +
       "\n\nPara agregar al carro ingrese ID de producto"
@@ -63,14 +64,14 @@ function ingresarProductos() {
     carrito.push(new Producto("Jabon", "10"));
 
     //agregarProducto = "Jabon por $10";
-    precio = 10;
-    suma = suma + precio;
+    precio = 10; //Esta linea no entiendo para que es, igual que la 72
+    suma += precio;
   } else if (agregarProducto == 2) {
     carrito.push(new Producto("Shampoo", "20"));
 
     // agregarProducto = "Shampoo por $20";
     precio = 20;
-    suma = suma + precio;
+    suma += precio;
   }
   //console.log(agregarProducto + " Suma total del pedido $" + suma);
 }
