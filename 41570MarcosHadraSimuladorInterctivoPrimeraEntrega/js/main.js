@@ -33,15 +33,18 @@ let producto3 = new Producto(3, "Crema Enjuague", 30, 0, 0);
 let producto4 = new Producto(4, "Toalla", 40, 100, 0);
 
 //Creo array de productos
-const productos = [];
-//Push
-productos.push(producto1, producto2, producto3, producto4);
+const productos = [producto1, producto2, producto3, producto4]; //Podemos hacer esto tambien!
 
 //Primer alert de todos lo productos
 //Googlee como mostrar array por alert
+let alertMessage = "";
+for (let i = 0; i < productos.length; i++) {
+  alertMessage += `ID: ${productos[i].id}, Nombre: ${productos[i].nombre}, $${productos[i].precio}, Stock: ${productos[i].stock} \n`;
+} //Con este for hago un String mas bonito para el usuario y lo renderizo! Igual al de abajo
+
 alert(
   "Lista de Productos (todos): \n\n" +
-    JSON.stringify(productos, null, 0) +
+    alertMessage +
     "\n\nPara agregar al carro ingrese ID de producto"
 );
 
@@ -62,9 +65,14 @@ while (pregunto.toLowerCase() !== "no") {
 function ingresarProductos() {
   let productosDisponibles = productos.filter((el) => el.stock > 0);
 
+  let alertMessageWithStock = "";
+  for (let i = 0; i < productosDisponibles.length; i++) {
+    alertMessageWithStock += `ID: ${productosDisponibles[i].id}, Nombre: ${productosDisponibles[i].nombre}, $${productosDisponibles[i].precio}, Stock: ${productosDisponibles[i].stock} \n`;
+  }
+
   let agregarProducto = prompt(
     "Productos Disponibles: \n\n" +
-      JSON.stringify(productosDisponibles, null, 0) +
+      alertMessageWithStock +
       "\n\nPara agregar al carro ingrese ID de producto"
   );
 
